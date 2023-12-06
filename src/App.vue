@@ -300,6 +300,7 @@ const handleClick = (idx) => {
           padding-left: 10px;
           line-height: 2;
           font-size: 16px;
+          border-bottom: 1px dashed #dadada;
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
