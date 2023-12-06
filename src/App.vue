@@ -156,7 +156,7 @@ const handleClick = (idx) => {
     display: flex;
 
     .pan-list {
-      border-right: 1px solid #ccc;
+      border-right: 1px solid #ddd;
       width: 180px;
 
       .title {
@@ -165,7 +165,7 @@ const handleClick = (idx) => {
         line-height: 40px;
         text-align: center;
         font-weight: bold;
-        background-color: #ccc;
+        background-color: #dedede;
 
         .sk-chase {
           position: absolute;
@@ -245,7 +245,7 @@ const handleClick = (idx) => {
       }
 
       .list {
-        background-color: #eee;
+        background-color: #fafafa;
         padding: 10px 0;
         height: calc(100vh - 40px);
         overflow-y: scroll;
@@ -295,6 +295,7 @@ const handleClick = (idx) => {
         height: 100%;
         box-shadow: 0 0 20px inset #ddd;
         z-index: 99;
+        pointer-events: none;
       }
     }
   }
