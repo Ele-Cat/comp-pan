@@ -24,14 +24,15 @@
       </div>
       <div class="pan-frame">
         <div class="empty" v-if="!activePan">请点击左侧选择盘搜源</div>
-        <iframe v-else id="iframe" class="iframe" :src="activePan.url" frameborder="0" @load="onFrameLoad" @error="onFrameError"></iframe>
+        <iframe v-else id="iframe" class="iframe" :src="activePan.url" frameborder="0" @load="onFrameLoad"
+          @error="onFrameError"></iframe>
       </div>
     </div>
   </a-config-provider>
 </template>
 
 <script setup>
-import { ref, reactive, computed } from 'vue';
+import { ref, reactive, computed, nextTick } from 'vue';
 
 const lists = reactive([
   {
@@ -111,6 +112,70 @@ const lists = reactive([
     label: "凌风云搜索"
   },
   {
+    url: "https://www.pansearch.me/",
+    label: "PanSearch"
+  },
+  {
+    url: "https://www.sousuopu.com/",
+    label: "学搜搜"
+  },
+  {
+    url: "https://www.magicalsearch.top",
+    label: "奇妙搜索"
+  },
+  {
+    url: "http://laisoyixia.com",
+    label: "来搜一下"
+  },
+  {
+    url: "https://www.alypw.com/",
+    label: "阿里云盘网"
+  },
+  {
+    url: "https://pansou.cc/",
+    label: "盘搜搜"
+  },
+  {
+    url: "https://pansoso.com/",
+    label: "盘搜搜"
+  },
+  {
+    url: "https://www.xuebapan.com/",
+    label: "学霸盘"
+  },
+  {
+    url: "https://s.6miu.com/",
+    label: "6miu"
+  },
+  {
+    url: "https://feiyu100.cn/",
+    label: "飞鱼盘搜"
+  },
+  {
+    url: "http://www.vpansou.com/",
+    label: "V盘搜"
+  },
+  {
+    url: "https://nmme.xyz/",
+    label: "橘子盘搜"
+  },
+  {
+    url: "https://www.xiongdipan.com/",
+    label: "兄弟盘"
+  },
+  {
+    url: "https://pan.funletu.com/",
+    label: "趣盘搜"
+  },
+  {
+    url: "https://aipanso.com/",
+    label: "爱盘搜"
+  },
+  {
+    url: "https://www.iizhi.cn",
+    label: "毕方铺"
+  },
+  {
     url: "https://hunhepan.com/#/resource",
     label: "夸克网盘资源"
   },
@@ -121,6 +186,11 @@ const lists = reactive([
 ])
 
 const activeIndex = ref(localStorage.getItem('activeIndex') || 0);
+nextTick(() => {
+  let activePanDOM = document.getElementsByClassName("active")[0];
+  console.log('activePanDOM: ', activePanDOM);
+  activePanDOM.scrollIntoView({block: "center", inline: "nearest"});
+})
 const activePan = computed(() => {
   panLoading.value = true;
   return lists[activeIndex.value];
