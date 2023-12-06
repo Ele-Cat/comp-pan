@@ -46,10 +46,6 @@ const lists = reactive([
     label: "混合盘搜索"
   },
   {
-    url: "https://www.pikaso.top/",
-    label: "皮卡搜索"
-  },
-  {
     url: "https://pan.justin3go.com/",
     label: "阿里云盘搜索"
   },
@@ -70,20 +66,12 @@ const lists = reactive([
     label: "大盘搜"
   },
   {
-    url: "https://pan.qianfan.app/",
-    label: "千帆网盘"
-  },
-  {
     url: "https://www.alipansou.com/",
     label: "猫狸盘搜"
   },
   {
     url: "https://www.sopandas.com/",
     label: "熊猫搜盘"
-  },
-  {
-    url: "https://www.xiaozhukuaipan.com/",
-    label: "小猪快盘"
   },
   {
     url: "https://www.xiaobaipan.com/",
@@ -118,16 +106,12 @@ const lists = reactive([
     label: "奇妙搜索"
   },
   {
-    url: "http://laisoyixia.com",
-    label: "来搜一下"
-  },
-  {
     url: "https://www.alypw.com/",
     label: "阿里云盘网"
   },
   {
     url: "https://pansou.cc/",
-    label: "盘搜搜"
+    label: "盘搜"
   },
   {
     url: "https://pansoso.com/",
@@ -144,10 +128,6 @@ const lists = reactive([
   {
     url: "https://feiyu100.cn/",
     label: "飞鱼盘搜"
-  },
-  {
-    url: "http://www.vpansou.com/",
-    label: "V盘搜"
   },
   {
     url: "https://nmme.xyz/",
@@ -310,7 +290,7 @@ const handleClick = (idx) => {
       .list {
         background-color: #fafafa;
         padding: 10px 0;
-        height: calc(100vh - 40px);
+        height: calc(100vh - 60px);
         overflow-y: scroll;
 
         p {
