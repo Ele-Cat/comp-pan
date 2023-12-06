@@ -195,7 +195,7 @@ const handleClick = (idx) => {
   overflow: hidden;
 
   .pan-box {
-    height: 100%;
+    height: 100vh;
     display: flex;
 
     .pan-list {
