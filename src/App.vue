@@ -162,7 +162,9 @@ const lists = reactive([
 const activeIndex = ref(localStorage.getItem('activeIndex') || 0);
 nextTick(() => {
   let activePanDOM = document.getElementsByClassName("active")[0];
-  activePanDOM.scrollIntoView({block: "center", inline: "nearest"});
+  if (activePanDOM) {
+    activePanDOM.scrollIntoView({block: "center", inline: "nearest"});
+  }
 })
 const activePan = computed(() => {
   panLoading.value = true;
