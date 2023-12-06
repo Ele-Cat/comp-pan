@@ -14,7 +14,7 @@
       </div>
       <div class="list">
         <p v-for="(item, index) in lists" :title="item.label" :key="index" @click="handleClick(index)"
-          :class="{ active: activeIndex == index }">{{ item.label }}</p>
+          :class="{ active: activePanIndex == index }">{{ item.label }}</p>
       </div>
     </div>
     <div class="pan-frame">
@@ -159,7 +159,7 @@ const lists = reactive([
   },
 ])
 
-const activeIndex = ref(localStorage.getItem('activeIndex') || 0);
+const activePanIndex = ref(localStorage.getItem('activePanIndex') || 0);
 nextTick(() => {
   let activePanDOM = document.getElementsByClassName("active")[0];
   if (activePanDOM) {
@@ -168,7 +168,7 @@ nextTick(() => {
 })
 const activePan = computed(() => {
   panLoading.value = true;
-  return lists[activeIndex.value];
+  return lists[activePanIndex.value];
 });
 const panLoading = ref(false);
 
@@ -182,8 +182,8 @@ const onFrameError = () => {
 
 const handleClick = (idx) => {
   panLoading.value = true;
-  activeIndex.value = idx;
-  localStorage.setItem('activeIndex', idx);
+  activePanIndex.value = idx;
+  localStorage.setItem('activePanIndex', idx);
 }
 </script>
 
