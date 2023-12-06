@@ -1,34 +1,28 @@
 <template>
-  <a-config-provider :theme="{
-    token: {
-      colorPrimary: '#FD6585',
-    },
-  }">
-    <div class="pan-box">
-      <div class="pan-list">
-        <div class="title">
-          <p>聚合盘搜</p>
-          <div class="sk-chase" v-if="panLoading">
-            <div class="sk-chase-dot"></div>
-            <div class="sk-chase-dot"></div>
-            <div class="sk-chase-dot"></div>
-            <div class="sk-chase-dot"></div>
-            <div class="sk-chase-dot"></div>
-            <div class="sk-chase-dot"></div>
-          </div>
-        </div>
-        <div class="list">
-          <p v-for="(item, index) in lists" :title="item.label" :key="index" @click="handleClick(index)"
-            :class="{ active: activeIndex == index }">{{ item.label }}</p>
+  <div class="pan-box">
+    <div class="pan-list">
+      <div class="title">
+        <p>聚合盘搜</p>
+        <div class="sk-chase" v-if="panLoading">
+          <div class="sk-chase-dot"></div>
+          <div class="sk-chase-dot"></div>
+          <div class="sk-chase-dot"></div>
+          <div class="sk-chase-dot"></div>
+          <div class="sk-chase-dot"></div>
+          <div class="sk-chase-dot"></div>
         </div>
       </div>
-      <div class="pan-frame">
-        <div class="empty" v-if="!activePan">请点击左侧选择盘搜源</div>
-        <iframe v-else id="iframe" class="iframe" :src="activePan.url" frameborder="0" @load="onFrameLoad"
-          @error="onFrameError"></iframe>
+      <div class="list">
+        <p v-for="(item, index) in lists" :title="item.label" :key="index" @click="handleClick(index)"
+          :class="{ active: activeIndex == index }">{{ item.label }}</p>
       </div>
     </div>
-  </a-config-provider>
+    <div class="pan-frame">
+      <div class="empty" v-if="!activePan">请点击左侧选择盘搜源</div>
+      <iframe v-else id="iframe" class="iframe" :src="activePan.url" frameborder="0" @load="onFrameLoad"
+        @error="onFrameError"></iframe>
+    </div>
+  </div>
 </template>
 
 <script setup>
@@ -188,7 +182,6 @@ const lists = reactive([
 const activeIndex = ref(localStorage.getItem('activeIndex') || 0);
 nextTick(() => {
   let activePanDOM = document.getElementsByClassName("active")[0];
-  console.log('activePanDOM: ', activePanDOM);
   activePanDOM.scrollIntoView({block: "center", inline: "nearest"});
 })
 const activePan = computed(() => {
@@ -323,7 +316,6 @@ const handleClick = (idx) => {
         p {
           margin: 0;
           padding-left: 10px;
-          width: 100%;
           line-height: 2;
           font-size: 16px;
           overflow: hidden;
