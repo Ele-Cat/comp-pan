@@ -47,16 +47,8 @@ const lists = reactive([
     label: "阿里小站2"
   },
   {
-    url: "https://hunhepan.com/#/resource",
-    label: "夸克网盘资源"
-  },
-  {
     url: "https://hunhepan.com/#/search?page=1&amp;q=",
     label: "混合盘搜索"
-  },
-  {
-    url: "https://hunhepan.com/",
-    label: "混合盘"
   },
   {
     url: "https://www.pikaso.top/",
@@ -117,6 +109,10 @@ const lists = reactive([
   {
     url: "https://www.lingfengyun.com/",
     label: "凌风云搜索"
+  },
+  {
+    url: "https://hunhepan.com/#/resource",
+    label: "夸克网盘资源"
   },
   {
     url: "https://ali.gitcafe.ink/",
